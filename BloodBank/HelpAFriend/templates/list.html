@@ -1,6 +1,6 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>List</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
@@ -9,10 +9,10 @@
 	{%include "header.html"%}
 	<table class="table8">
 		<tr>
-			<th class="table8_th">Name</th>
-			<th class="table8_th">Availability</th>
-			<th class="table8_th">Mobile No.</th>
-			<th class="table8_th">E-mail</th>
+			<th class="table8_th" scope="col">Name</th>
+			<th class="table8_th" scope="col">Availability</th>
+			<th class="table8_th" scope="col">Mobile No.</th>
+			<th class="table8_th" scope="col">E-mail</th>
 		</tr>
 		{% if output_list %}
 		{% for user in output_list %}

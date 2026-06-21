@@ -1,26 +1,26 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Registration Page</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<center>
+	<div style="text-align:center;">
 	{% include "header.html" %}
 	<div class="table2_text"><caption>Registration</caption></div>	
 	<form action="../submit/" method="POST">
 		{% csrf_token %}
 		<div class="table2">
-		<table>
+		<table role="presentation">
 			<tr>
-					<td class="table2_td">Full Name : </td>
-					<td><input type="text" name="fname" class="table2_input"></td>			
+					<td class="table2_td"><label for="fname">Full Name : </label></td>
+					<td><input id="fname" type="text" name="fname" class="table2_input"></td>
 			</tr>
 			<tr>
-				<td class="table2_td">Blood Group : </td>
+				<td class="table2_td"><label for="blood">Blood Group : </label></td>
 				<td>
-					<select name="blood" class="table2_input">
+					<select id="blood" name="blood" class="table2_input">
 						<option>Select</option>
 						<option value="O+">O+</option>
 						<option value="O-">O-</option>
@@ -42,62 +42,62 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">DOB : </td>
+				<td class="table2_td"><label for="dob">DOB : </label></td>
 				<td>
-					<input type="date" name="dob" class="table2_input">
+					<input id="dob" type="date" name="dob" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Mobile Number : </td>
-				<td><input type="text" name="mobileno" class="table2_input"></td>
+				<td class="table2_td"><label for="mobileno">Mobile Number : </label></td>
+				<td><input id="mobileno" type="text" name="mobileno" class="table2_input"></td>
 			</tr>
 			<tr>
-				<td class="table2_td">Country : </td>
+				<td class="table2_td"><label for="country">Country : </label></td>
 				<td>
-					<input type="text" name="country" class="table2_input">
+					<input id="country" type="text" name="country" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">State : </td>
+				<td class="table2_td"><label for="state">State : </label></td>
 				<td>
-					<input type="text" name="state" class="table2_input">
+					<input id="state" type="text" name="state" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">City : </td>
+				<td class="table2_td"><label for="city">City : </label></td>
 				<td>
-					<input type="text" name="city" class="table2_input">
+					<input id="city" type="text" name="city" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Pincode : </td>
+				<td class="table2_td"><label for="pincode">Pincode : </label></td>
 				<td>
-					<input type="text" name="pincode" maxlength="6" class="table2_input">
+					<input id="pincode" type="text" name="pincode" maxlength="6" class="table2_input">
 				</td>
 			</tr>
 			
 			<tr>
-				<td class="table2_td">Email Id : </td>
+				<td class="table2_td"><label for="email">Email Id : </label></td>
 				<td>
-					<input type="email" name="email" class="table2_input">
+					<input id="email" type="email" name="email" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Password : </td>
+				<td class="table2_td"><label for="password">Password : </label></td>
 				<td>
-					<input type="password" name="password" class="table2_input">
+					<input id="password" type="password" name="password" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Retype Password : </td>
+				<td class="table2_td"><label for="rpassword">Retype Password : </label></td>
 				<td>
-					<input type="password" name="rpassword" class="table2_input">
+					<input id="rpassword" type="password" name="rpassword" class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Please confirm your availability <br> to donate blood : </td>
+				<td class="table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></td>
 				<td>
-					<select name="availability" class="table2_input">
+					<select id="availability" name="availability" class="table2_input">
 						<option>Select</option>
 						<option value="available">Available</option>
 						<option value="unavailable">Unavailable</option>
@@ -106,16 +106,16 @@
 			</tr>
 			<tr>
 				<td >
-					<input type="submit" value="Submit" class="table2_button">
+					<input id="submit_btn" type="submit" value="Submit" class="table2_button" aria-label="Submit form">
 				</td>
 				<td>
-					<input type="reset" value="Reset" class="table2_button">
+					<input id="reset_btn" type="reset" value="Reset" class="table2_button" aria-label="Reset form">
 				</td>
 			</tr>
 		</table>
 	</div>
 	</form>
-	</center>
+	</div>
 	{% include "footer.html" %}
 </body>
 </html>

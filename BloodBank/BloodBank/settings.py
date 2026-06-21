@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'iw8)hzniv-@68f)p)4s6cxgwoi%j)m$y6!+sqah%ew(*^%t+wh'
+# The key is now read from an environment variable instead of being hard-coded.
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-change-me-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'BloodBank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'ddn',
-        'USER' : 'ddn',
-        'PASSWORD' : 'ddn',
+        'NAME' : os.environ.get('DB_NAME', 'ddn'),
+        'USER' : os.environ.get('DB_USER', 'ddn'),
+        'PASSWORD' : os.environ.get('DB_PASSWORD', ''),
         'HOST' : '127.0.0.1',
         'PORT' : '3306',
     }
@@ -135,6 +136,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'helpafriend.bloodbank@gmail.com'
-EMAIL_HOST_PASSWORD = 'bloodbank.project'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'helpafriend.bloodbank@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 

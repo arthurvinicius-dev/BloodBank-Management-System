@@ -1,21 +1,21 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Search</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<center>
+	<div style="text-align:center;">
 		{%include "header.html"%}
 		<div class="table3_text"><caption>Blood Search</caption></div>
 		<form action="../search_donor/" method="POST">
 			{% csrf_token %}
 			<div class="table3">
-			<table>
+			<table role="presentation">
 				<tr>
-					<td class="table3_td">Blood Group: </td>
-					<td><select name="blood" class="table3_input">
+					<td class="table3_td"><label for="blood">Blood Group: </label></td>
+					<td><select id="blood" name="blood" class="table3_input">
 							<option>---</option>
 							<option value="O+">O+</option>
 							<option value="O-">O-</option>
@@ -36,9 +36,9 @@
 						</select></td>
 				</tr>
 				<tr>
-					<td class="table3_td">Select Country: </td>
+					<td class="table3_td"><label for="country">Select Country: </label></td>
 					<td>
-						<select name="country" class="table3_input">
+						<select id="country" name="country" class="table3_input">
 							<option>---</option>
 							<option value="india">India</option>
 							<option value="srilanka">Sri Lanka</option>
@@ -47,9 +47,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="table3_td">Select State: </td>
+					<td class="table3_td"><label for="state">Select State: </label></td>
 					<td>
-						<select name="state" class="table3_input">
+						<select id="state" name="state" class="table3_input">
 							<option>---</option>
 							<option value="gujarat">Gujarat</option>
 							<option value="rajasthan">Rajasthan</option>
@@ -58,9 +58,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="table3_td">Select City : </td>
+					<td class="table3_td"><label for="city">Select City : </label></td>
 					<td>
-						<select name="city" class="table3_input">
+						<select id="city" name="city" class="table3_input">
 							<option>---</option>
 							<option value="vadodara">Vadodara</option>
 							<option value="nadiad">Nadiad</option>
@@ -70,9 +70,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="table3_td">Search By : </td>
+					<td class="table3_td"><label for="search_by">Search By : </label></td>
 					<td>
-						<select name="search_by" class="table3_input">
+						<select id="search_by" name="search_by" class="table3_input">
 							<option>---</option>
 							<option value="donor">Donors</option>
 							<option value="bloodbank">BloodBank</option>
@@ -80,12 +80,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><center><input type="submit" name="submit" value="Search" class="table3_button"></center></td>
+					<td colspan="2"><div style="text-align:center;"><input id="submit" type="submit" name="submit" value="Search" class="table3_button" aria-label="Search"></div></td>
 				</tr>
 			</table>
 			</div>
 		</form>
 		{%include "footer.html"%}
-	</center>
+	</div>
 </body>
 </html>

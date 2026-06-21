@@ -1,65 +1,65 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>BloodBank Registration</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<center>
+	<div style="text-align:center;">
 		{%include "header.html"%}
 		<form action="../submit_bloodbank/" method="POST">
 			{% csrf_token %}
 			<div class="table9">
-			<table>
+			<table role="presentation">
 			<tr>
-				<td class="table7_td">BloodBank Name :</td>
-				<td><input type="text" name="bank_name" class="table7_input"></td>
+				<td class="table7_td"><label for="bank_name">BloodBank Name :</label></td>
+				<td><input id="bank_name" type="text" name="bank_name" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">Country : </td>
-				<td><input type="text" name="country" class="table7_input"></td>
+				<td class="table7_td"><label for="country">Country : </label></td>
+				<td><input id="country" type="text" name="country" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">State : </td>
-				<td><input type="text" name="state" class="table7_input"></td>
+				<td class="table7_td"><label for="state">State : </label></td>
+				<td><input id="state" type="text" name="state" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">City : </td>
-				<td><input type="text" name="city" class="table7_input"></td>
+				<td class="table7_td"><label for="city">City : </label></td>
+				<td><input id="city" type="text" name="city" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">Pincode : </td>
-				<td><input type="text" name="pincode" maxlength="6" class="table7_input"></td>
+				<td class="table7_td"><label for="pincode">Pincode : </label></td>
+				<td><input id="pincode" type="text" name="pincode" maxlength="6" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">Contact No. : </td>
-				<td><input type="text" name="contact_no" class="table7_input"></td>
+				<td class="table7_td"><label for="contact_no">Contact No. : </label></td>
+				<td><input id="contact_no" type="text" name="contact_no" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">E-mail :</td>
-				<td><input type="text" name="email" class="table7_input"></td>
+				<td class="table7_td"><label for="email">E-mail :</label></td>
+				<td><input id="email" type="text" name="email" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">Password :</td>
-				<td><input type="password" name="password" class="table7_input"></td>
+				<td class="table7_td"><label for="password">Password :</label></td>
+				<td><input id="password" type="password" name="password" class="table7_input"></td>
 			</tr>
 			<tr>
-				<td class="table7_td">Re Password :</td>
-				<td><input type="password" name="rpassword" class="table7_input"></td>
+				<td class="table7_td"><label for="rpassword">Re Password :</label></td>
+				<td><input id="rpassword" type="password" name="rpassword" class="table7_input"></td>
 			</tr>
 			<tr>
 				<td class="table7_td">ISO Certified? :</td>
-				<td><input type="radio" name="iso" value="Yes">YES  <input type="radio" name="iso" value="No">NO </td>
+				<td><input id="iso_yes" type="radio" name="iso" value="Yes"><label for="iso_yes">YES</label>  <input id="iso_no" type="radio" name="iso" value="No"><label for="iso_no">NO</label> </td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Submit" class="table7_button"></td>
-				<td><input type="reset" name="Reset" class="table7_button"></td>
+				<td><input id="submit_btn" type="submit" value="Submit" class="table7_button" aria-label="Submit form"></td>
+				<td><input id="reset_btn" type="reset" name="Reset" class="table7_button" aria-label="Reset form"></td>
 			</tr>
 			</table>
 		</div>
 		</form>
 		{%include "footer.html"%}
-	</center>
+	</div>
 </body>
 </html>

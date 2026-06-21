@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
@@ -9,7 +9,7 @@
 	<div class="header">
 		<div class="menu1">
 			<div class="logo">
-				<img src="{% static 'images/logo.png'%}" height="55px">
+				<img src="{% static 'images/logo.png'%}" height="55px" alt="Help A Friend logo">
 			</div>
 				<h3>Help A Friend</h3>	
 			{% if request.session.fname %}

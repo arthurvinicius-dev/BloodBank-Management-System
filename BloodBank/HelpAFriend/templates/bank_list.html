@@ -1,21 +1,21 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Blood Bank</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
 	{%include "header.html"%}
-	<center>
+	<div style="text-align:center;">
 		<table class="table8">
 			<tr>
-				<th class="table8_th">BloodBank Name</th>
-				<th class="table8_th">Blood Group</th>
-				<th class="table8_th">Available Units</th>
-				<th class="table8_th">Contact No.</th>
-				<th class="table8_th">E-mail</th>
-				<th class="table8_th">ISO Certified</th>
+				<th class="table8_th" scope="col">BloodBank Name</th>
+				<th class="table8_th" scope="col">Blood Group</th>
+				<th class="table8_th" scope="col">Available Units</th>
+				<th class="table8_th" scope="col">Contact No.</th>
+				<th class="table8_th" scope="col">E-mail</th>
+				<th class="table8_th" scope="col">ISO Certified</th>
 			</tr>
 			{% if output_bank_list and output_blood_list %}
 			{% for blood in output_blood_list %}
@@ -34,7 +34,7 @@
 			{% endfor %}
 			{% endif %}
 		</table>
-	</center>
+	</div>
 	{%include "footer.html"%}
 </body>
 </html>

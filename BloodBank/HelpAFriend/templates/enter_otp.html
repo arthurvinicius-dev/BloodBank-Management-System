@@ -1,12 +1,12 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Enter Otp</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<center>
+	<div style="text-align:center;">
 		{%include "header.html" %}
 		{% if msg %}
 		{{ msg }}
@@ -15,11 +15,11 @@
 		<div class="table5">
 		<form action="../verify_otp/" method="POST">
 			{% csrf_token %}
-			<div class="table5_td">Enter OTP : <input type="text" name="otp" class="table5_input"><br></div>
-			<input type="submit" name="s_otp" value="Submit" class="table5_button" >
+			<div class="table5_td"><label for="otp">Enter OTP : </label><input id="otp" type="text" name="otp" class="table5_input"><br></div>
+			<input id="submit_btn" type="submit" name="s_otp" value="Submit" class="table5_button" aria-label="Submit form">
 		</form>
 		</div>
 		{%include "footer.html"%}
-	</center>
+	</div>
 </body>
 </html>

@@ -1,12 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Edit Profile</title>
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<center>
+	<div style="text-align:center;">
 		{% include "header.html" %}
 		<form action="../update_details/" method="POST">
 			{% csrf_token %}
@@ -16,10 +16,10 @@
 				{% if msg %}
 			<strong>{{ msg }}</strong>
 			{% endif %}
-			<table border="0">
+			<table role="presentation" border="0">
 			<tr>
-				<td class="table2_td">Full Name : </td>
-				<td><input type="text" name="fname" value="{{ ud.fname }}" class="table2_input"></td>			
+				<td class="table2_td"><label for="fname">Full Name : </label></td>
+				<td><input id="fname" type="text" name="fname" value="{{ ud.fname }}" class="table2_input"></td>
 			</tr>
 			<tr>
 				<td class="table2_td">Blood Group : </td>
@@ -34,44 +34,44 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Mobile Number : </td>
-				<td><input type="text" name="mobileno" value={{ ud.mobile_no }} class="table2_input"></td>
+				<td class="table2_td"><label for="mobileno">Mobile Number : </label></td>
+				<td><input id="mobileno" type="text" name="mobileno" value={{ ud.mobile_no }} class="table2_input"></td>
 			</tr>
 			<tr>
-				<td class="table2_td">Country : </td>
+				<td class="table2_td"><label for="country">Country : </label></td>
 				<td>
-					<input type="text" name="country" value={{ ud.country }} class="table2_input">
+					<input id="country" type="text" name="country" value={{ ud.country }} class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">State : </td>
+				<td class="table2_td"><label for="state">State : </label></td>
 				<td>
-					<input type="text" name="state" value={{ ud.state }} class="table2_input">
+					<input id="state" type="text" name="state" value={{ ud.state }} class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">City : </td>
+				<td class="table2_td"><label for="city">City : </label></td>
 				<td>
-					<input type="text" name="city"  value={{ ud.city }} class="table2_input">
+					<input id="city" type="text" name="city"  value={{ ud.city }} class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Pincode : </td>
+				<td class="table2_td"><label for="pincode">Pincode : </label></td>
 				<td>
-					<input type="text" name="pincode" maxlength="6" value={{ ud.pincode }} class="table2_input">
+					<input id="pincode" type="text" name="pincode" maxlength="6" value={{ ud.pincode }} class="table2_input">
 				</td>
 			</tr>
 			
 			<tr>
-				<td class="table2_td">Email Id : </td>
+				<td class="table2_td"><label for="email">Email Id : </label></td>
 				<td>
-					<input type="email" name="email" value={{ ud.email }} class="table2_input">
+					<input id="email" type="email" name="email" value={{ ud.email }} class="table2_input">
 				</td>
 			</tr>
 			<tr>
-				<td class="table2_td">Please confirm your availability <br> to donate blood : </td>
+				<td class="table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></td>
 				<td>
-					<select name="availability" class="table2_input">
+					<select id="availability" name="availability" class="table2_input">
 						<option value="available">Available</option>
 						<option value="unavailable">Unavailable</option>
 					</select>
@@ -79,16 +79,16 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" value="Update" class="table2_button">
+					<input id="submit_btn" type="submit" value="Update" class="table2_button" aria-label="Update profile">
 				</td>
 				<td>
-					<input type="reset" value="Reset" class="table2_button">
+					<input id="reset_btn" type="reset" value="Reset" class="table2_button" aria-label="Reset form">
 				</td>
 			</tr>
 			</table>
 			{% endif %}
 		</form>
-	</center>
+	</div>
 	{% include 'footer.html'%}
 </body>
 </html>

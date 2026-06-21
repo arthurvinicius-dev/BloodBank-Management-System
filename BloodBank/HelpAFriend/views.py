@@ -1,15 +1,12 @@
-from django.shortcuts import render,render_to_response
-from dbconnection.models import *
+from django.shortcuts import render, render_to_response
+from dbconnection.models import UserDetails, RequestDetails, BloodBankDetails, AvailableBloodGroup
 from django.http import HttpResponseRedirect 
-from django.template.context_processors import *
-from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.
 
-from django.views import generic
-import smtplib
-import math, random 
+import math
+import random
 
 def Index(request):
 	# request_list=RequestDetails.objects.all()
@@ -63,9 +60,6 @@ def User_Home(request):
 		user_name=None
 
 	return render(request,'user_home.html',{ 'user_name' : user_name })
-
-def BloodBank_Home(request):
-	return render(request,'bloodbank_home.html')
 
 def BloodBank_Home(request):
 	return render(request,'bloodbank_home.html')
@@ -125,8 +119,6 @@ def Auth_User(request):
 def Submit(request):
 	if request.method=='POST':
 		if request.POST.get('fname') and request.POST.get('blood') and request.POST.get('dob') and request.POST.get('mobileno') and request.POST.get('country') and request.POST.get('state') and request.POST.get('city') and request.POST.get('pincode') and request.POST.get('email') and request.POST.get('password') and request.POST.get('rpassword') and request.POST.get('availability'):
-			c={}
-			c.update(csrf(request))
 			ud=UserDetails()
 			ud.fname=request.POST.get('fname')
 			ud.blood_group=request.POST.get('blood')
@@ -150,8 +142,6 @@ def Submit(request):
 def Submit_BloodBank(request):
 	if request.method=='POST':
 		if request.POST.get('bank_name') and request.POST.get('country') and request.POST.get('state') and request.POST.get('city') and request.POST.get('pincode') and request.POST.get('contact_no')and request.POST.get('email') and request.POST.get('password') and request.POST.get('rpassword') and request.POST.get('iso'):
-			c={}
-			c.update(csrf(request))
 			bd=BloodBankDetails()
 
 			bd.name=request.POST.get('bank_name')
@@ -174,8 +164,6 @@ def Submit_BloodBank(request):
 def Search_Donor(request):
 	if request.method=='POST':
 		if request.POST.get('search_by') and request.POST.get('blood') and request.POST.get('country') and request.POST.get('state') and request.POST.get('city'):
-			c={}
-			c.update(csrf(request))
 
 			output_list=[]
 			output_blood_list=[]
@@ -223,8 +211,6 @@ def Post_Req(request):
 
 		if request.method=='POST':
 			if request.POST.get('pname') and request.POST.get('blood') and request.POST.get('age') and request.POST.get('bdate') and request.POST.get('unit') and request.POST.get('mobileno') and request.POST.get('hospital') and request.POST.get('location') and request.POST.get('paddress') and request.POST.get('purpose') :
-				c={}
-				c.update(csrf(request))
 				rd=RequestDetails()
 				for user in user_list :
 					if user.userid==userid:
@@ -267,8 +253,6 @@ def Post_Req(request):
 
 def Update_Units(request):
 	
-	c={}
-	c.update(csrf(request))
 
 	bloodbank_id=request.session['bloodbank_id']
 	blood_list=AvailableBloodGroup.objects.all()
@@ -356,8 +340,6 @@ def Change_Password(request):
 		uid=request.session['user_id']
 		if request.POST.get('new_password') and request.POST.get('rnew_password'):
 			if request.POST.get('new_password') == request.POST.get('rnew_password'):
-				c={}
-				c.update(csrf(request))
 
 				ud=UserDetails.objects.get(userid = uid)
 				ud.password=request.POST.get('new_password')
@@ -370,8 +352,6 @@ def Change_Password(request):
 		bid=request.session['bloodbank_id']
 
 		if request.POST.get('new_password') == request.POST.get('rnew_password'):
-			c={}
-			c.update(csrf(request))
 
 			bd=BloodBankDetails.objects.get(bloodbank_id = bid)
 			bd.password=request.POST.get('new_password')
@@ -444,8 +424,6 @@ def Verify_Otp(request):
 def Update_Password(request):
 	
 	if request.POST.get('new_password')==request.POST.get('re_password'):
-		c={}
-		c.update(csrf(request))
 
 		email=request.session['email']
 		user_type=request.session['type']
