@@ -470,3 +470,237 @@ h2{
   font-size: 25px;
   margin-top: 31%
 }
+/* ===== Paginas responsivas: FAQ (RF20) e Posso ser doador? (RF19) ===== */
+/* Container em fluxo normal, isolado do layout absoluto legado. */
+.page{
+  position: relative;
+  box-sizing: border-box;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px 80px 20px;
+  color: #222;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.page * { box-sizing: border-box; }
+
+.page_title{
+  /* sobrescreve o h2 absoluto/branco do tema legado */
+  position: static;
+  margin: 0 0 10px 0;
+  color: #cc0000;
+  font-size: 32px;
+}
+.page_intro{
+  margin: 0 0 24px 0;
+  color: #444;
+}
+
+/* ----- FAQ ----- */
+.faq_categoria{
+  position: static;
+  color: #cc0000;
+  border-bottom: 2px solid #cc0000;
+  padding-bottom: 6px;
+  margin: 32px 0 12px 0;
+  font-size: 24px;
+}
+.faq_item{
+  margin: 12px 0;
+  padding: 12px 16px;
+  background-color: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+}
+.faq_pergunta{
+  cursor: pointer;
+  font-weight: bold;
+}
+.faq_resposta{
+  margin: 10px 0 0 4px;
+}
+
+/* ----- Posso ser doador? ----- */
+.aviso{
+  margin: 0 0 24px 0;
+  padding: 12px 16px;
+  background-color: #fff3cd;
+  border-left: 5px solid #cc0000;
+  color: #333;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.aptitude_pergunta{
+  margin: 14px 0;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.aptitude_pergunta legend{
+  font-weight: bold;
+  padding: 0 6px;
+}
+.aptitude_pergunta label{
+  display: inline-block;
+  margin-right: 24px;
+  cursor: pointer;
+}
+.aptitude_resultado ul{
+  display: block;
+  position: static;
+  overflow: visible;
+  background: none;
+  width: auto;
+  margin: 12px 0;
+  padding: 0 0 0 20px;
+  list-style: disc;
+}
+.aptitude_resultado li{
+  flex: none;
+  float: none;
+  margin: 10px 0;
+}
+.resultado_apto{ position: static; color: #2e7d32; margin: 0 0 10px 0; }
+.resultado_inapto{ position: static; color: #cc0000; margin: 0 0 10px 0; }
+
+.btn_primary{
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background-color: #cc0000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn_primary:hover{ background-color: #a30000; }
+
+@media (max-width: 700px) {
+  .page{ padding: 20px 14px 60px 14px; font-size: 16px; }
+  .page_title{ font-size: 26px; }
+  .faq_categoria{ font-size: 20px; }
+  .aptitude_pergunta label{ display: block; margin: 8px 0; }
+}
+
+/* Layout de formularios via CSS no lugar de tabelas de layout (SonarCloud S5257/S6819) */
+.form-layout { display: table; border-collapse: collapse; }
+.form-row { display: table-row; }
+.form-cell { display: table-cell; vertical-align: middle; padding: 3px 5px; }
+
+/* ===== Cabecalho responsivo (sobrescreve layout absoluto legado) ===== */
+.site-header{
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.site-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.site-brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.site-title{
+  color: #cc0000;
+  font-size: 26px;
+  font-weight: bold;
+}
+.site-auth{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+/* estado deslogado: sobrescreve .login absoluto */
+.site-auth .login{
+  position: static;
+  margin: 0;
+}
+.site-auth .login a{ color: #cc0000; }
+/* estado logado: sobrescreve float/margens do .dropdown */
+.site-auth .dropdown{
+  position: relative;
+  float: none;
+  margin: 0;
+  font-size: 18px;
+  color: #cc0000;
+  cursor: pointer;
+}
+.site-auth .dropdown-content{ right: 0; }
+.site-auth .dropdown-content a{ color: #333; }
+
+/* navegacao principal: sobrescreve ul/li/li a absolutos */
+.site-nav ul{
+  position: static;
+  margin: 0;
+  width: 100%;
+  overflow: visible;
+  background-color: #cc0000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.site-nav li{
+  float: none;
+  flex: 0 1 auto;
+}
+.site-nav li a{
+  display: block;
+  color: #fff;
+  padding: 14px 22px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.site-nav li a:hover{ background-color: #a30000; }
+
+@media (max-width: 700px){
+  .site-title{ font-size: 20px; }
+  .site-nav li{ flex: 0 0 auto; }
+  .site-nav li a{ padding: 12px 12px; font-size: 14px; }
+}
+
+/* ===== Rodape responsivo (paginas novas) ===== */
+.site-footer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 60px;
+  padding: 28px 24px;
+  margin-top: 40px;
+  background-color: #cc0000;
+  color: #fff;
+}
+.site-footer__col{
+  display: flex;
+  flex-direction: column;
+}
+.site-footer__title{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.site-footer__col a,
+.site-footer__col span{
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.site-footer__col a:hover{ text-decoration: underline; }
+
+/* ===== Reset minimo para responsividade ===== */
+html, body{
+  margin: 0;
+  padding: 0;
+}
+.responsive-page{
+  overflow-x: hidden;
+}

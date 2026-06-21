@@ -16,76 +16,77 @@
 				{% if msg %}
 			<strong>{{ msg }}</strong>
 			{% endif %}
-			<table role="presentation" border="0">
-			<tr>
-				<td class="table2_td"><label for="fname">Full Name : </label></td>
-				<td><input id="fname" type="text" name="fname" value="{{ ud.fname }}" class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td">Blood Group : </td>
-				<td>
+			<div class="form-layout">
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="fname">Full Name : </label></div>
+				<div class="form-cell"><input id="fname" type="text" name="fname" value="{{ ud.fname }}" class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td">Blood Group : </div>
+				<div class="form-cell">
 					{{ ud.blood_group }}
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td">DOB : </td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td">DOB : </div>
+				<div class="form-cell">
 					{{ ud.dob }}
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="mobileno">Mobile Number : </label></td>
-				<td><input id="mobileno" type="text" name="mobileno" value={{ ud.mobile_no }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="country">Country : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="mobileno">Mobile Number : </label></div>
+				<div class="form-cell"><input id="mobileno" type="text" name="mobileno" value={{ ud.mobile_no }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="country">Country : </label></div>
+				<div class="form-cell">
 					<input id="country" type="text" name="country" value={{ ud.country }} class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="state">State : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="state">State : </label></div>
+				<div class="form-cell">
 					<input id="state" type="text" name="state" value={{ ud.state }} class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="city">City : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="city">City : </label></div>
+				<div class="form-cell">
 					<input id="city" type="text" name="city"  value={{ ud.city }} class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="pincode">Pincode : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="pincode">Pincode : </label></div>
+				<div class="form-cell">
 					<input id="pincode" type="text" name="pincode" maxlength="6" value={{ ud.pincode }} class="table2_input">
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="table2_td"><label for="email">Email Id : </label></td>
-				<td>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="email">Email Id : </label></div>
+				<div class="form-cell">
 					<input id="email" type="email" name="email" value={{ ud.email }} class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></div>
+				<div class="form-cell">
 					<select id="availability" name="availability" class="table2_input">
 						<option value="available">Available</option>
 						<option value="unavailable">Unavailable</option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell">
 					<input id="submit_btn" type="submit" value="Update" class="table2_button" aria-label="Update profile">
-				</td>
-				<td>
+				</div>
+				<div class="form-cell">
 					<input id="reset_btn" type="reset" value="Reset" class="table2_button" aria-label="Reset form">
-				</td>
-			</tr>
-			</table>
+				</div>
+			</div>
+			</div>
+			</div>
 			{% endif %}
 		</form>
 	</div>

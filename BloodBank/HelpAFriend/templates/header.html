@@ -1,31 +1,39 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
-	<div class="header">
-		<div class="menu1">
-			<div class="logo">
-				<img src="{% static 'images/logo.png'%}" height="55px" alt="Help A Friend logo">
+	<header class="site-header">
+		<div class="site-bar">
+			<a class="site-brand" href="../index/">
+				<img src="{% static 'images/logo.png'%}" height="46px" alt="Help A Friend logo">
+				<span class="site-title">Help A Friend</span>
+			</a>
+			<div class="site-auth">
+				{% if request.session.fname %}
+					{% include 'user_home.html'%}
+				{% elif request.session.name %}
+					{% include 'bloodbank_home.html' %}
+				{% else %}
+					{% include 'header_login.html' %}
+				{% endif %}
 			</div>
-				<h3>Help A Friend</h3>	
-			{% if request.session.fname %}
-				{% include 'user_home.html'%}
-			{% elif request.session.name %}
-				{% include 'bloodbank_home.html' %}
-			{% else %}	
-				{% include 'header_login.html' %}
-			{% endif %}	
+		</div>
+		<nav class="site-nav">
 			<ul>
- 				<li><a href="../aboutus">About Us</a></li>
-				<li><a href="../post_request/">Request</a></li>
-				<li><a href="../search">Search</a></li>
 				<li><a href="../index/">Home</a></li>
+				<li><a href="../search">Search</a></li>
+				<li><a href="../post_request/">Request</a></li>
+				<li><a href="../faq/">FAQ</a></li>
+				<li><a href="../aptitude/">Posso ser doador?</a></li>
+				<li><a href="../aboutus">About Us</a></li>
 			</ul>
-		</div>	
-	</div>
+		</nav>
+	</header>
 </body>
 </html>

@@ -12,14 +12,14 @@
 	<form action="../submit/" method="POST">
 		{% csrf_token %}
 		<div class="table2">
-		<table role="presentation">
-			<tr>
-					<td class="table2_td"><label for="fname">Full Name : </label></td>
-					<td><input id="fname" type="text" name="fname" class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="blood">Blood Group : </label></td>
-				<td>
+		<div class="form-layout">
+			<div class="form-row">
+					<div class="form-cell table2_td"><label for="fname">Full Name : </label></div>
+					<div class="form-cell"><input id="fname" type="text" name="fname" class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="blood">Blood Group : </label></div>
+				<div class="form-cell">
 					<select id="blood" name="blood" class="table2_input">
 						<option>Select</option>
 						<option value="O+">O+</option>
@@ -39,80 +39,80 @@
 						<option value="B+">B+</option>
 						<option value="B-">B-</option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="dob">DOB : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="dob">DOB : </label></div>
+				<div class="form-cell">
 					<input id="dob" type="date" name="dob" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="mobileno">Mobile Number : </label></td>
-				<td><input id="mobileno" type="text" name="mobileno" class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="country">Country : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="mobileno">Mobile Number : </label></div>
+				<div class="form-cell"><input id="mobileno" type="text" name="mobileno" class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="country">Country : </label></div>
+				<div class="form-cell">
 					<input id="country" type="text" name="country" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="state">State : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="state">State : </label></div>
+				<div class="form-cell">
 					<input id="state" type="text" name="state" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="city">City : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="city">City : </label></div>
+				<div class="form-cell">
 					<input id="city" type="text" name="city" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="pincode">Pincode : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="pincode">Pincode : </label></div>
+				<div class="form-cell">
 					<input id="pincode" type="text" name="pincode" maxlength="6" class="table2_input">
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="table2_td"><label for="email">Email Id : </label></td>
-				<td>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="email">Email Id : </label></div>
+				<div class="form-cell">
 					<input id="email" type="email" name="email" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="password">Password : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="password">Password : </label></div>
+				<div class="form-cell">
 					<input id="password" type="password" name="password" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="rpassword">Retype Password : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="rpassword">Retype Password : </label></div>
+				<div class="form-cell">
 					<input id="rpassword" type="password" name="rpassword" class="table2_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="availability">Please confirm your availability <br> to donate blood : </label></div>
+				<div class="form-cell">
 					<select id="availability" name="availability" class="table2_input">
 						<option>Select</option>
 						<option value="available">Available</option>
 						<option value="unavailable">Unavailable</option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td >
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell">
 					<input id="submit_btn" type="submit" value="Submit" class="table2_button" aria-label="Submit form">
-				</td>
-				<td>
+				</div>
+				<div class="form-cell">
 					<input id="reset_btn" type="reset" value="Reset" class="table2_button" aria-label="Reset form">
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 	</div>
 	</form>
 	</div>

@@ -12,49 +12,49 @@
 			{% csrf_token %}
 
 			{% if bd%}
-			<table role="presentation" class="table10">
+			<div class="form-layout table10">
 				{% if msg %}
 			<strong>{{ msg }}</strong>
 			{% endif %}
-			<tr>
-				<td class="table2_td">BloodBank Name :</td>
-				<td>
+			<div class="form-row">
+				<div class="form-cell table2_td">BloodBank Name :</div>
+				<div class="form-cell">
 					{{bd.name}}
-				</td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="country">Country : </label></td>
-				<td><input id="country" type="text" name="country" value={{ bd.country }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="state">State : </label></td>
-				<td><input id="state" type="text" name="state" value={{ bd.state }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="city">City : </label></td>
-				<td><input id="city" type="text" name="city" value={{ bd.city }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="pincode">Pincode : </label></td>
-				<td><input id="pincode" type="text" name="pincode" maxlength="6" value={{ bd.pincode }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="contact_no">Contact No. : </label></td>
-				<td><input id="contact_no" type="text" name="contact_no" value={{ bd.contact_no }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td"><label for="email">E-mail :</label></td>
-				<td><input id="email" type="text" name="email" value={{ bd.email }} class="table2_input"></td>
-			</tr>
-			<tr>
-				<td class="table2_td">ISO Certified? :</td>
-				<td><input id="iso_yes" type="radio" name="iso" value="Yes"><label for="iso_yes">YES</label>  <input id="iso_no" type="radio" name="iso" value="No"><label for="iso_no">NO</label> </td>
-			</tr>
-			<tr>
-				<td><input id="submit_btn" type="submit" value="Submit" class="table2_button" aria-label="Submit form"></td>
-				<td><input id="reset_btn" type="reset" name="Reset" class="table2_button" aria-label="Reset form"></td>
-			</tr>
-			</table>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="country">Country : </label></div>
+				<div class="form-cell"><input id="country" type="text" name="country" value={{ bd.country }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="state">State : </label></div>
+				<div class="form-cell"><input id="state" type="text" name="state" value={{ bd.state }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="city">City : </label></div>
+				<div class="form-cell"><input id="city" type="text" name="city" value={{ bd.city }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="pincode">Pincode : </label></div>
+				<div class="form-cell"><input id="pincode" type="text" name="pincode" maxlength="6" value={{ bd.pincode }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="contact_no">Contact No. : </label></div>
+				<div class="form-cell"><input id="contact_no" type="text" name="contact_no" value={{ bd.contact_no }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td"><label for="email">E-mail :</label></div>
+				<div class="form-cell"><input id="email" type="text" name="email" value={{ bd.email }} class="table2_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table2_td">ISO Certified? :</div>
+				<div class="form-cell"><input id="iso_yes" type="radio" name="iso" value="Yes"><label for="iso_yes">YES</label>  <input id="iso_no" type="radio" name="iso" value="No"><label for="iso_no">NO</label> </div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell"><input id="submit_btn" type="submit" value="Submit" class="table2_button" aria-label="Submit form"></div>
+				<div class="form-cell"><input id="reset_btn" type="reset" name="Reset" class="table2_button" aria-label="Reset form"></div>
+			</div>
+			</div>
 		{% endif %}
 		</form>
 	</div>

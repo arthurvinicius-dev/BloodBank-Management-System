@@ -60,5 +60,32 @@ class AvailableBloodGroup(models.Model):
 	class Meta:
 		db_table='AvailableBloodGroup'
 
+class FAQ(models.Model):
+	CATEGORIA_CADASTRO='cadastro'
+	CATEGORIA_DOACAO='doacao'
+	CATEGORIA_SOLICITACAO='solicitacao'
+	CATEGORIA_ACESSO='acesso'
+	CATEGORIA_GERAL='geral'
+
+	CATEGORIA_CHOICES=[
+		(CATEGORIA_CADASTRO,'Cadastro'),
+		(CATEGORIA_DOACAO,'Doação'),
+		(CATEGORIA_SOLICITACAO,'Solicitação de Sangue'),
+		(CATEGORIA_ACESSO,'Acesso e Login'),
+		(CATEGORIA_GERAL,'Uso Geral'),
+	]
+
+	faq_id=models.AutoField(primary_key=True)
+	question=models.CharField(max_length=200)
+	answer=models.TextField()
+	category=models.CharField(max_length=20,choices=CATEGORIA_CHOICES,default=CATEGORIA_GERAL)
+	enabled=models.BooleanField(default=True)
+
+	class Meta:
+		db_table='FAQ'
+
+	def __str__(self):
+		return self.question
+
 
 

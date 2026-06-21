@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from dbconnection.models import UserDetails, RequestDetails, BloodBankDetails, AvailableBloodGroup
+from dbconnection.models import UserDetails, RequestDetails, BloodBankDetails, AvailableBloodGroup, FAQ
 from django.http import HttpResponseRedirect 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -446,9 +446,102 @@ def Update_Password(request):
 
 	else:
 		msg="Both Passwords Do Not Match !!!"
-		return render(request,'new_password.html',{ 'msg' : msg })			
+		return render(request,'new_password.html',{ 'msg' : msg })
 
 
+# ---------------------------------------------------------------------------
+# FAQ (RF20 / RN09 / RN10) — perguntas frequentes organizadas por categoria.
+# ---------------------------------------------------------------------------
+def FAQ_View(request):
+	faq_list=FAQ.objects.filter(enabled=True)
+	categorias=[]
+	for value,label in FAQ.CATEGORIA_CHOICES:
+		perguntas=[faq for faq in faq_list if faq.category==value]
+		if perguntas:
+			categorias.append({ 'label' : label , 'perguntas' : perguntas })
 
- 
+	return render(request,'faq.html',{ 'categorias' : categorias })
+
+
+# ---------------------------------------------------------------------------
+# Posso ser doador? (RF19 / RN06 / RN07 / RN08) — anamnese rápida de aptidão.
+# As perguntas cobrem critérios básicos (idade, peso, saúde, medicamentos,
+# tatuagens recentes, etc.). O resultado é apenas uma orientação inicial.
+# ---------------------------------------------------------------------------
+ANAMNESE_PERGUNTAS = [
+	{
+		'id' : 'idade',
+		'texto' : 'Você tem entre 18 e 69 anos?',
+		'resposta_apta' : 'sim',
+		'impedimento' : 'A idade está fora da faixa recomendada para doação (18 a 69 anos).',
+		'orientacao' : 'Pessoas a partir de 16 anos podem doar em campanhas específicas e menores de 18 anos necessitam de autorização. Procure um hemocentro para avaliação.',
+	},
+	{
+		'id' : 'peso',
+		'texto' : 'Você pesa no mínimo 50 kg?',
+		'resposta_apta' : 'sim',
+		'impedimento' : 'É necessário pesar pelo menos 50 kg para doar sangue.',
+		'orientacao' : 'Você poderá doar assim que atingir o peso mínimo de 50 kg.',
+	},
+	{
+		'id' : 'saude',
+		'texto' : 'Você está se sentindo bem e saudável hoje?',
+		'resposta_apta' : 'sim',
+		'impedimento' : 'Não é recomendado doar sangue quando não se está bem de saúde.',
+		'orientacao' : 'Aguarde a recuperação completa e tente novamente quando estiver se sentindo bem.',
+	},
+	{
+		'id' : 'medicamentos',
+		'texto' : 'Você está usando algum medicamento que contraindique a doação (ex.: antibióticos)?',
+		'resposta_apta' : 'nao',
+		'impedimento' : 'O uso de alguns medicamentos pode contraindicar temporariamente a doação.',
+		'orientacao' : 'Aguarde o fim do tratamento e o período de carência do medicamento. Em caso de dúvida, consulte o hemocentro.',
+	},
+	{
+		'id' : 'tatuagem',
+		'texto' : 'Você fez tatuagem, maquiagem definitiva ou piercing nos últimos 12 meses?',
+		'resposta_apta' : 'nao',
+		'impedimento' : 'Tatuagem, maquiagem definitiva ou piercing recentes exigem um período de espera.',
+		'orientacao' : 'Você poderá doar após 12 meses da realização do procedimento.',
+	},
+	{
+		'id' : 'alcool',
+		'texto' : 'Você ingeriu bebida alcoólica nas últimas 12 horas?',
+		'resposta_apta' : 'nao',
+		'impedimento' : 'O consumo recente de bebida alcoólica impede temporariamente a doação.',
+		'orientacao' : 'Aguarde pelo menos 12 horas após o consumo de álcool para doar.',
+	},
+	{
+		'id' : 'gestacao',
+		'texto' : 'Você está grávida ou amamentando?',
+		'resposta_apta' : 'nao',
+		'impedimento' : 'Gestantes e lactantes não devem doar sangue neste período.',
+		'orientacao' : 'A doação é liberada após o período gestacional/de amamentação, conforme orientação médica.',
+	},
+]
+
+
+def Aptitude_Questionnaire(request):
+	if request.method=='POST':
+		impedimentos=[]
+		for pergunta in ANAMNESE_PERGUNTAS:
+			resposta=request.POST.get(pergunta['id'])
+			if resposta!=pergunta['resposta_apta']:
+				impedimentos.append({
+					'motivo' : pergunta['impedimento'],
+					'orientacao' : pergunta['orientacao'],
+				})
+
+		apto=len(impedimentos)==0
+		resultado={
+			'avaliado' : True,
+			'apto' : apto,
+			'impedimentos' : impedimentos,
+		}
+		return render(request,'aptitude.html',{
+			'perguntas' : ANAMNESE_PERGUNTAS,
+			'resultado' : resultado,
+		})
+
+	return render(request,'aptitude.html',{ 'perguntas' : ANAMNESE_PERGUNTAS })
 

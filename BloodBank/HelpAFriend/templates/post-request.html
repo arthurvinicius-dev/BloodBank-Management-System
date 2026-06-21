@@ -12,16 +12,16 @@
 	<form action="../post_req/" method="POST">
 		{% csrf_token %}
 		<div class="table7">
-		<table role="presentation">
-			<tr>
-				<td class="table7_td"><label for="pname">Patient Full Name : </label></td>
-				<td>
+		<div class="form-layout">
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="pname">Patient Full Name : </label></div>
+				<div class="form-cell">
 					<input id="pname" type="text" name="pname" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="blood">Patient Blood Group : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="blood">Patient Blood Group : </label></div>
+				<div class="form-cell">
 					<select id="blood" name="blood" class="table7_input">
 						<option>---</option>
 						<option value="O+">O+</option>
@@ -41,62 +41,62 @@
 						<option value="B+">B+</option>
 						<option value="B-">B-</option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="age">Patient's Age : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="age">Patient's Age : </label></div>
+				<div class="form-cell">
 					<input id="age" type="text" name="age" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="bdate">When You Need Blood? </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="bdate">When You Need Blood? </label></div>
+				<div class="form-cell">
 					<input id="bdate" type="date" name="bdate" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="unit">How Many Units You Need? </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="unit">How Many Units You Need? </label></div>
+				<div class="form-cell">
 					<input id="unit" type="text" name="unit" class="table7_input"> mL
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="mobileno">Mobile Number : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="mobileno">Mobile Number : </label></div>
+				<div class="form-cell">
 					<input id="mobileno" type="text" name="mobileno" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="hospital">Hospital Name : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="hospital">Hospital Name : </label></div>
+				<div class="form-cell">
 					<input id="hospital" type="text" name="hospital" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="location">Location : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="location">Location : </label></div>
+				<div class="form-cell">
 					<input id="location" type="text" name="location" class="table7_input">
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="paddress">Patient's City : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="paddress">Patient's City : </label></div>
+				<div class="form-cell">
 					<textarea id="paddress" name="paddress" cols="30" rows="5" class="table7_input"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="purpose">Purpose : </label></td>
-				<td>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="purpose">Purpose : </label></div>
+				<div class="form-cell">
 					<textarea id="purpose" name="purpose" cols="30" rows="5" class="table7_input"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell">
 					<input id="Submit" type="submit" name="Submit" class="table7_button" aria-label="Submit form">
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 	</div>
 	</form>
 	{%include "footer.html" %}

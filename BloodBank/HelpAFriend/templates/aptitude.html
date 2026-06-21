@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Posso ser doador?</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+</head>
+<body class="responsive-page">
+	{% include 'header.html' %}
+	<main class="page">
+		<h2 class="page_title">Posso ser doador?</h2>
+		<p class="page_intro">Responda à anamnese rápida abaixo para receber uma
+		<strong>orientação inicial</strong> sobre sua aptidão para doar sangue neste momento.</p>
+
+		<div class="aviso" role="note">
+			<strong>Atenção:</strong> este resultado é apenas uma orientação inicial e
+			<strong>não substitui</strong> a avaliação clínica realizada no hemocentro. A
+			aptidão definitiva é confirmada por um profissional de saúde no dia da doação.
+		</div>
+
+		{% if resultado.avaliado %}
+			<div class="aptitude_resultado">
+				{% if resultado.apto %}
+					<h3 class="resultado_apto">Você provavelmente está APTO(A) a doar! 🩸</h3>
+					<p>Com base nas suas respostas, não identificamos impedimentos. Procure
+					um hemocentro para confirmar e realizar a doação.</p>
+				{% else %}
+					<h3 class="resultado_inapto">No momento você pode estar INAPTO(A) a doar.</h3>
+					<p>Identificamos os seguintes pontos de atenção:</p>
+					<ul>
+						{% for item in resultado.impedimentos %}
+							<li>
+								<strong>{{ item.motivo }}</strong><br>
+								<em>Quando tentar novamente:</em> {{ item.orientacao }}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				<p><a class="btn_primary" href="../aptitude/">Refazer a anamnese</a></p>
+			</div>
+		{% else %}
+			<form action="../aptitude/" method="POST">
+				{% csrf_token %}
+				{% for pergunta in perguntas %}
+					<fieldset class="aptitude_pergunta">
+						<legend>{{ pergunta.texto }}</legend>
+						<label>
+							<input type="radio" name="{{ pergunta.id }}" value="sim" required> Sim
+						</label>
+						<label>
+							<input type="radio" name="{{ pergunta.id }}" value="nao"> Não
+						</label>
+					</fieldset>
+				{% endfor %}
+				<button type="submit" class="btn_primary">Ver resultado</button>
+			</form>
+		{% endif %}
+	</main>
+	{% include 'footer_simple.html' %}
+</body>
+</html>

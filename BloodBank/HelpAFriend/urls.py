@@ -33,5 +33,7 @@ urlpatterns = [
 		url(r'verify_otp/$',views.Verify_Otp),
 		url(r'update_password/$',views.Update_Password),
 		url(r'aboutus/$',views.AboutUS),
+		url(r'faq/$',views.FAQ_View),
+		url(r'aptitude/$',views.Aptitude_Questionnaire),
 	]
 

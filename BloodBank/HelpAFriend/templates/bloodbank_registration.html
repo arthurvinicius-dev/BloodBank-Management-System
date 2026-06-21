@@ -11,52 +11,52 @@
 		<form action="../submit_bloodbank/" method="POST">
 			{% csrf_token %}
 			<div class="table9">
-			<table role="presentation">
-			<tr>
-				<td class="table7_td"><label for="bank_name">BloodBank Name :</label></td>
-				<td><input id="bank_name" type="text" name="bank_name" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="country">Country : </label></td>
-				<td><input id="country" type="text" name="country" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="state">State : </label></td>
-				<td><input id="state" type="text" name="state" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="city">City : </label></td>
-				<td><input id="city" type="text" name="city" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="pincode">Pincode : </label></td>
-				<td><input id="pincode" type="text" name="pincode" maxlength="6" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="contact_no">Contact No. : </label></td>
-				<td><input id="contact_no" type="text" name="contact_no" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="email">E-mail :</label></td>
-				<td><input id="email" type="text" name="email" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="password">Password :</label></td>
-				<td><input id="password" type="password" name="password" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td"><label for="rpassword">Re Password :</label></td>
-				<td><input id="rpassword" type="password" name="rpassword" class="table7_input"></td>
-			</tr>
-			<tr>
-				<td class="table7_td">ISO Certified? :</td>
-				<td><input id="iso_yes" type="radio" name="iso" value="Yes"><label for="iso_yes">YES</label>  <input id="iso_no" type="radio" name="iso" value="No"><label for="iso_no">NO</label> </td>
-			</tr>
-			<tr>
-				<td><input id="submit_btn" type="submit" value="Submit" class="table7_button" aria-label="Submit form"></td>
-				<td><input id="reset_btn" type="reset" name="Reset" class="table7_button" aria-label="Reset form"></td>
-			</tr>
-			</table>
+			<div class="form-layout">
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="bank_name">BloodBank Name :</label></div>
+				<div class="form-cell"><input id="bank_name" type="text" name="bank_name" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="country">Country : </label></div>
+				<div class="form-cell"><input id="country" type="text" name="country" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="state">State : </label></div>
+				<div class="form-cell"><input id="state" type="text" name="state" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="city">City : </label></div>
+				<div class="form-cell"><input id="city" type="text" name="city" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="pincode">Pincode : </label></div>
+				<div class="form-cell"><input id="pincode" type="text" name="pincode" maxlength="6" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="contact_no">Contact No. : </label></div>
+				<div class="form-cell"><input id="contact_no" type="text" name="contact_no" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="email">E-mail :</label></div>
+				<div class="form-cell"><input id="email" type="text" name="email" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="password">Password :</label></div>
+				<div class="form-cell"><input id="password" type="password" name="password" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td"><label for="rpassword">Re Password :</label></div>
+				<div class="form-cell"><input id="rpassword" type="password" name="rpassword" class="table7_input"></div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell table7_td">ISO Certified? :</div>
+				<div class="form-cell"><input id="iso_yes" type="radio" name="iso" value="Yes"><label for="iso_yes">YES</label>  <input id="iso_no" type="radio" name="iso" value="No"><label for="iso_no">NO</label> </div>
+			</div>
+			<div class="form-row">
+				<div class="form-cell"><input id="submit_btn" type="submit" value="Submit" class="table7_button" aria-label="Submit form"></div>
+				<div class="form-cell"><input id="reset_btn" type="reset" name="Reset" class="table7_button" aria-label="Reset form"></div>
+			</div>
+			</div>
 		</div>
 		</form>
 		{%include "footer.html"%}

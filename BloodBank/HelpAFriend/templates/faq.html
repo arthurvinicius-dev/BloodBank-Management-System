@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Perguntas Frequentes (FAQ)</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+</head>
+<body class="responsive-page">
+	{% include 'header.html' %}
+	<main class="page">
+		<h2 class="page_title">Perguntas Frequentes (FAQ)</h2>
+		<p class="page_intro">Reunimos abaixo as dúvidas mais comuns sobre o sistema,
+		organizadas por categoria para facilitar a navegação.</p>
+
+		{% for categoria in categorias %}
+			<h3 class="faq_categoria">{{ categoria.label }}</h3>
+			{% for pergunta in categoria.perguntas %}
+				<details class="faq_item">
+					<summary class="faq_pergunta">{{ pergunta.question }}</summary>
+					<p class="faq_resposta">{{ pergunta.answer }}</p>
+				</details>
+			{% endfor %}
+		{% empty %}
+			<p>Nenhuma pergunta cadastrada no momento.</p>
+		{% endfor %}
+	</main>
+	{% include 'footer_simple.html' %}
+</body>
+</html>
