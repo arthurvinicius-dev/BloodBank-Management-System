@@ -452,7 +452,7 @@ def Update_Password(request):
 # ---------------------------------------------------------------------------
 # FAQ (RF20 / RN09 / RN10) — perguntas frequentes organizadas por categoria.
 # ---------------------------------------------------------------------------
-def FAQ_View(request):
+def faq_view(request):
 	faq_list=FAQ.objects.filter(enabled=True)
 	categorias=[]
 	for value,label in FAQ.CATEGORIA_CHOICES:
@@ -521,7 +521,7 @@ ANAMNESE_PERGUNTAS = [
 ]
 
 
-def Aptitude_Questionnaire(request):
+def aptitude_questionnaire(request):
 	if request.method=='POST':
 		impedimentos=[]
 		for pergunta in ANAMNESE_PERGUNTAS:
